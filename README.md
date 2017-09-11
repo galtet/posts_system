@@ -7,7 +7,7 @@ First install `docker`, `docker compose` for your machine and start it. How this
 ### Run the project
 In order to run the project, you need to simply run:
 ```
-$ docker-compose rup -d
+$ docker-compose run -d
 ```
 
 That’s it. Your app should now be running on port 9092 on your Docker daemon. 
