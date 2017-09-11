@@ -6,6 +6,5 @@ if [ -z "$PORT" ];then
   PORT=9092
 fi
 
-rm -rf jobs.db; rake db:migrate
 exec bundle exec rackup -o 0.0.0.0 -p $PORT
 cd -
