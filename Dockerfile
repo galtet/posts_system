@@ -19,7 +19,7 @@ RUN curl -sSL https://get.rvm.io | bash -s stable
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 RUN /bin/bash -l -c "rvm requirements"
-RUN /bin/bash -l -c "rvm install ruby-2.1.2"
+RUN /bin/bash -l -c "rvm install ruby-2.4.0"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 # Copy tyrion
@@ -32,17 +32,16 @@ RUN /bin/bash -l -c "bundle"
 
 WORKDIR "/home/dev_user"
 
-RUN mkdir -p tyrion/current/ && mkdir -p tyrion/shared/config/ && mkdir -p tyrion/shared/logs/
-COPY . /home/dev_user/tyrion/current/
-RUN rm /home/dev_user/tyrion/current/Dockerfile
+RUN mkdir -p tyrion/ && mkdir -p tyrion/logs/
+COPY . /home/dev_user/tyrion/
+RUN rm /home/dev_user/tyrion/Dockerfile
 
 USER root
 RUN chown -R dev_user.dev_user tyrion/
-RUN rm -rf /home/dev_user/tyrion/current/logs/
 
 USER dev_user
 
-WORKDIR /home/dev_user/tyrion/current/
+WORKDIR /home/dev_user/tyrion/
 RUN chmod +x ./bin/runner
 
 EXPOSE 9092
