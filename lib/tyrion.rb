@@ -1,6 +1,5 @@
 module Tyrion; end
 
-require 'base64'
 require 'mysql2'
 
 require 'tyrion/exceptions'
