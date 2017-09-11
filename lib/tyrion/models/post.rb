@@ -8,7 +8,7 @@ module Tyrion
 
       after_create :update_hot_posts
 
-      MAX_HOT_POSTS = 3
+      MAX_HOT_POSTS = 20
       @@hot_posts = []
 
       def self.hot_posts
