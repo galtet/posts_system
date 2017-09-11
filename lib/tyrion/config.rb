@@ -36,8 +36,7 @@ module Tyrion
         :database  => 'dev',
         :username => 'root',
         :password => 'root',
-        :host => '127.0.0.1',
-        :port => '3308'
+        :host => 'db'
       )
 
       @logger.debug "initialized Config"
